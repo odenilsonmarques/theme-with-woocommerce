@@ -8,3 +8,16 @@ Version: 1.0
 Text Domain: loja
 Tags: woocommerce, loja, wordpress
 */
+
+.top-bar{
+    background-color: red;
+    height: 70px;
+}
+
+.brand{
+    background-color: black;
+}
+
+.second-column{
+    background-color: aqua;
+}
