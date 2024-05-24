@@ -23,7 +23,15 @@
                         <div class="brand col-3">Logo</div>
                         <div class="second-column col-9">
                             <div class="account">Conta</div>
-                            <div class="main-menu">Menu</div>
+                            <nav class="main-menu">
+                                <?php
+                                wp_nav_menu(
+                                    array(
+                                        'theme_location' => 'loja_main_menu'
+                                    )
+                                );
+                                ?>
+                            </nav>
                         </div>
                     </div>
                 </div>
