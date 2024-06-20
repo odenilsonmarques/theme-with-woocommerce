@@ -9,6 +9,51 @@ Text Domain: loja
 Tags: woocommerce, loja, wordpress
 */
 
+
+
+/* rajdhani-regular - latin */
+@font-face {
+    font-family: 'Rajdhani';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/rajdhani/rajdhani-v15-latin-regular.woff'); 
+}
+/* rajdhani-500 - latin */
+@font-face {
+    font-family: 'Rajdhani';
+    font-style: normal;
+    font-weight: 500;
+    src: url('fonts/rajdhani/rajdhani-v15-latin-500.woff'); 
+}
+/* rajdhani-600 - latin */
+@font-face {
+    font-family: 'Rajdhani';
+    font-style: normal;
+    font-weight: 600;
+    src: url('fonts/rajdhani/rajdhani-v15-latin-600.woff'); 
+}
+/* rajdhani-700 - latin */
+@font-face {
+    font-family: 'Rajdhani';
+    font-style: normal;
+    font-weight: 700;
+    src: url('fonts/rajdhani/rajdhani-v15-latin-700.woff'); 
+}
+/* seaweed-script-regular - latin */
+@font-face {
+    font-family: 'Seaweed Script';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/seaweed-script/seaweed-script-v13-latin-regular.woff'); 
+}
+
+body{
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+}
+
+
+
 .main-menu{
     padding: 0;
 }
@@ -33,6 +78,48 @@ a{
 .main-menu ul li:last-child{ 
     margin: 0; 
 }
+
+.main-menu .dropdown:hover>.dropdown-menu, 
+.main-menu .dropup:hover>.dropdown-menu  {
+  display: block;
+}
+
+
+
+/* Search Form */
+
+.search-form button{
+    background-image: url('assets/img/search.svg');
+    height: 23px;
+    width: 23px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none; 
+}
+
+.search-form input[type="search"]{
+    background-color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 110%;
+    padding: 0.3rem 1rem;
+    margin-right: 0.3rem;
+}
+
+/* Footer - Footer Menu */
+.footer-menu ul, .footer-widgets ul{ 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    font-size: 16px; 
+}
+
+
+
+
+
+
+
 
 /* Footer - Footer Menu */
 .footer-menu ul, .footer-widgets ul{ 
@@ -184,6 +271,122 @@ a{
 .woocommerce nav.woocommerce-pagination ul li span {
     padding: 12px;
 }
+
+
+
+/* Single Product */
+.woocommerce #respond input#submit.alt, 
+.woocommerce a.button.alt, 
+.woocommerce button.button.alt, 
+.woocommerce input.button.alt,
+.woocommerce ul.products li.product .button {
+    background-color: #D2335B;
+    color: #fff;
+}
+
+.woocommerce #respond input#submit.alt:hover, 
+.woocommerce a.button.alt:hover, 
+.woocommerce button.button.alt:hover, 
+.woocommerce input.button.alt:hover,
+.woocommerce ul.products li.product .button:hover {
+    background-color: #bd3759;
+}
+
+.product_meta > span{
+    display: block;
+}
+
+.woocommerce div.product p.price del, 
+.woocommerce div.product span.price del,
+.woocommerce ul.products li.product .price del .woocommerce-Price-amount{
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.woocommerce div.product p.price ins, 
+.woocommerce div.product span.price ins, 
+.woocommerce-Price-amount {
+    font-size: 25px;
+    color: #000;
+    font-weight: 700;
+}
+
+.woocommerce span.onsale{
+    top: 19px;
+    left: 35px;
+    transform: rotate(90deg);
+    border-radius: 0;   
+    width: 84px;
+    padding: 0;
+    background-color: #D2335B;
+    margin: 0;
+    font-weight: 400;
+}
+
+.woocommerce span.onsale:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 83px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 23px 22px 0 0;
+    border-color: #D2335B transparent transparent transparent;
+}
+
+.woocommerce span.onsale:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 83px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 22px 23px 0;
+    border-color: transparent transparent #D2335B transparent;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs{
+    padding: 0;
+
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li{
+    border-radius: 0;
+    margin: 0;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li::after, 
+.woocommerce div.product .woocommerce-tabs ul.tabs li::before{
+    content: none;
+}
+
+.woocommerce #respond input#submit, 
+.woocommerce a.button, 
+.woocommerce button.button, 
+.woocommerce input.button{
+    background-color: #ffeb8a;
+}
+
+.woocommerce #respond input#submit:hover, 
+.woocommerce a.button:hover, 
+.woocommerce button.button:hover, 
+.woocommerce input.button:hover{
+    background-color: #ffe252;
+}
+
+.woocommerce-cart table.cart td.actions .coupon .input-text{
+    width: 150px;
+}
+
+
+
+
+
+
+
 
 /* fim WooCommerce */
 

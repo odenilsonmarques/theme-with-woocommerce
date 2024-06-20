@@ -14,24 +14,44 @@
         <header>
             <section class="search">
                 <div class="container">
-                    Pesquisa
+                    <!-- para funcionalidade de pesquisar, o 1º passo é declarar a função nativa do wp no local do campo de pesquisa, dessa forma ja vai aparecer o campo de pesquisa -->
+                     <!-- NO entanto, quando declaramos dessa forma fica funcional o modo de pesquisa padrão do wp, ou seja ele tras tudo na pesquisa, como post, texto.. Logo precisamos ter controle
+                     sobre essa funcionalidade, para isso precisamos criar um arquivo chamado searchform.php e dentro dele declarar o um campo de form -->
+                    <div class="text-center d-md-flex align-items-center">
+						<?php get_search_form(); ?>
+					</div>
                 </div>
             </section>
             <section class="top-bar">
                 <div class="container">
                     <div class="row">
-                        <div class="brand col-3">Logo</div>
-                        <div class="second-column col-9">
-                            <div class="account">Conta</div>
-                            <nav class="main-menu">
-                                <?php
-                                wp_nav_menu(
-                                    array(
-                                        'theme_location' => 'loja_main_menu'
-                                    )
-                                );
-                                ?>
-                            </nav>
+                        <div class="brand col-md-3 col-12 col-lg-2 text-center text-md-start">Logo</div>
+                        <div class="second-column col-md-9 col-12 col-lg-10">
+                            <div class="row">
+                                <div class="account col-12">Conta</div>
+                                <div class="col-12">
+                                    <nav class="main-menu navbar navbar-expand-md navbar-light" role="navigation">
+
+                                        <!-- Brand and toggle get grouped for better mobile display -->
+                                        <button class="ms-auto navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle navigation', 'your-theme-slug'); ?>">
+                                            <span class="navbar-toggler-icon"></span>
+                                        </button>
+
+                                        <?php
+                                        wp_nav_menu(array(
+                                            'theme_location'    => 'loja_main_menu',
+                                            'depth'             => 3,
+                                            'container'         => 'div',
+                                            'container_class'   => 'collapse navbar-collapse',
+                                            'container_id'      => 'bs-example-navbar-collapse-1',
+                                            'menu_class'        => 'nav navbar-nav',
+                                            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                                            'walker'            => new WP_Bootstrap_Navwalker(),
+                                        ));
+                                        ?>
+                                    </nav>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

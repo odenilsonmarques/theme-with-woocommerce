@@ -2,8 +2,8 @@
 /*
 funções para alterar o visual da loja padrao do woocommerce.
 Isso é possivel porque fazemos chamadas diretas no ganchos 
-padrao do woocommerce e nao precisamos alterar mexer em nenhuma 
-linha do arquivo original . Lembrando que ela e chamada no fucntion 
+padrao do woocommerce e nao precisamos mexer em nenhuma 
+linha do arquivo original . Lembrando que ela é chamada no fucntion 
 */
 
 
