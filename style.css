@@ -106,6 +106,30 @@ a{
     margin-right: 0.3rem;
 }
 
+
+/* Cart */
+.cart .cart-icon {
+    background: url('assets/img/cart.svg');
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    vertical-align: bottom; 
+}
+
+.cart .items{
+    background: #CA2424;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+}
+
+
+
+
 /* Footer - Footer Menu */
 .footer-menu ul, .footer-widgets ul{ 
     list-style: none; 

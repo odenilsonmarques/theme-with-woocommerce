@@ -28,7 +28,18 @@
                         <div class="brand col-md-3 col-12 col-lg-2 text-center text-md-start">Logo</div>
                         <div class="second-column col-md-9 col-12 col-lg-10">
                             <div class="row">
-                                <div class="account col-12">Conta</div>
+                                <div class="account col-12">
+                                    <div class="cart text-right">
+                                        <!-- exibe o icone ou o texto que quando clicado leva para o carrinho -->
+                                        <a href="<?php echo wc_get_cart_url();?>"><span class="cart-icon"></span></a>
+                                       
+                                        <!-- exibe a quantidade de itens no carrinho -->
+                                        <span class="items"><?php echo WC()->cart->get_cart_contents_count();?></span>
+
+                                    </div>
+                                </div>
+
+
                                 <div class="col-12">
                                     <nav class="main-menu navbar navbar-expand-md navbar-light" role="navigation">
 
