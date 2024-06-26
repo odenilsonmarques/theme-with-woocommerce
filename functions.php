@@ -48,6 +48,15 @@ function loja_config()
 	if (!isset($content_width)) {
 		$content_width = 600;
 	}
+
+
+	// add logo custom
+	add_theme_support('custom-logo', array(
+		'height'		=> 85,
+		'width'			=> 160,
+		'flex_height'	=> true,
+		'flex_width'	=> true
+	));
 }
 add_action('after_setup_theme', 'loja_config', 0);
 
@@ -65,7 +74,7 @@ if (class_exists('WooCommerce')) {
 
 
 // trecho de código para aplicar o efeito no menu hamburguer. Lembreando que o menu ta abrindo mais na ta fechano, tentar arrumar isso
-add_filter( 'nav_menu_link_attributes', 'prefix_bs5_dropdown_data_attribute', 20, 3 );
+add_filter('nav_menu_link_attributes', 'prefix_bs5_dropdown_data_attribute', 20, 3);
 /**
  * Use namespaced data attribute for Bootstrap's dropdown toggles.
  *
@@ -74,14 +83,15 @@ add_filter( 'nav_menu_link_attributes', 'prefix_bs5_dropdown_data_attribute', 20
  * @param stdClass $args An object of wp_nav_menu() arguments.
  * @return array
  */
-function prefix_bs5_dropdown_data_attribute( $atts, $item, $args ) {
-    if ( is_a( $args->walker, 'WP_Bootstrap_Navwalker' ) ) {
-        if ( array_key_exists( 'data-toggle', $atts ) ) {
-            unset( $atts['data-toggle'] );
-            $atts['data-bs-toggle'] = 'dropdown';
-        }
-    }
-    return $atts;
+function prefix_bs5_dropdown_data_attribute($atts, $item, $args)
+{
+	if (is_a($args->walker, 'WP_Bootstrap_Navwalker')) {
+		if (array_key_exists('data-toggle', $atts)) {
+			unset($atts['data-toggle']);
+			$atts['data-bs-toggle'] = 'dropdown';
+		}
+	}
+	return $atts;
 }
 
 
@@ -94,16 +104,17 @@ function prefix_bs5_dropdown_data_attribute( $atts, $item, $args ) {
 /**
  * Show cart contents / total Ajax
  */
-add_filter( 'woocommerce_add_to_cart_fragments', 'loja_woocommerce_header_add_to_cart_fragment' );
+add_filter('woocommerce_add_to_cart_fragments', 'loja_woocommerce_header_add_to_cart_fragment');
 
-function loja_woocommerce_header_add_to_cart_fragment( $fragments ) {
+function loja_woocommerce_header_add_to_cart_fragment($fragments)
+{
 	global $woocommerce;
 
 	ob_start();
 
-	?>
+?>
 	<span class="items"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-	<?php
+<?php
 	$fragments['span.items'] = ob_get_clean();
 	return $fragments;
 }
