@@ -28,16 +28,47 @@
                         <div class="brand col-md-3 col-12 col-lg-2 text-center text-md-start">Logo</div>
                         <div class="second-column col-md-9 col-12 col-lg-10">
                             <div class="row">
-                                <div class="account col-12">
-                                    <div class="cart text-right">
-                                        <!-- exibe o icone ou o texto que quando clicado leva para o carrinho -->
-                                        <a href="<?php echo wc_get_cart_url();?>"><span class="cart-icon"></span></a>
-                                       
-                                        <!-- exibe a quantidade de itens no carrinho -->
-                                        <span class="items"><?php echo WC()->cart->get_cart_contents_count();?></span>
+                               
 
-                                    </div>
-                                </div>
+
+                                <?php if( class_exists( 'WooCommerce' ) ): ?>
+								<div class="account col-12">
+									<div class="navbar-expand">
+										<ul class="navbar-nav float-left">
+											<?php if( is_user_logged_in() ): ?>
+											<li>
+												<a class="nav-link" href="<?php echo esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ); ?>">My Account</a>
+											</li>
+											<li>
+												<a class="nav-link" href="<?php echo esc_url( wp_logout_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ) ); ?>">Logout</a>
+											</li>
+											<?php else: ?>	
+											<li>
+												<a class="nav-link" href="<?php echo esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ); ?>">Login / Register</a>
+											</li>												
+											<?php endif; ?>										
+										</ul>
+									</div>
+									<div class="cart text-right" style="text-align: right">
+										<a href="<?php echo wc_get_cart_url(); ?>"><span class="cart-icon"></span></a>
+										<span class="items"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+									</div>
+								</div>
+								<?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                                 <div class="col-12">
