@@ -15,11 +15,11 @@
             <section class="search">
                 <div class="container">
                     <!-- para funcionalidade de pesquisar, o 1º passo é declarar a função nativa do wp no local do campo de pesquisa, dessa forma ja vai aparecer o campo de pesquisa -->
-                     <!-- NO entanto, quando declaramos dessa forma fica funcional o modo de pesquisa padrão do wp, ou seja ele tras tudo na pesquisa, como post, texto.. Logo precisamos ter controle
+                    <!-- NO entanto, quando declaramos dessa forma fica funcional o modo de pesquisa padrão do wp, ou seja ele tras tudo na pesquisa, como post, texto.. Logo precisamos ter controle
                      sobre essa funcionalidade, para isso precisamos criar um arquivo chamado searchform.php e dentro dele declarar o um campo de form -->
                     <div class="text-center d-md-flex align-items-center">
-						<?php get_search_form(); ?>
-					</div>
+                        <?php get_search_form(); ?>
+                    </div>
                 </div>
             </section>
             <section class="top-bar">
@@ -28,33 +28,33 @@
                         <div class="brand col-md-3 col-12 col-lg-2 text-center text-md-start">Logo</div>
                         <div class="second-column col-md-9 col-12 col-lg-10">
                             <div class="row">
-                               
 
 
-                                <?php if( class_exists( 'WooCommerce' ) ): ?>
-								<div class="account col-12">
-									<div class="navbar-expand">
-										<ul class="navbar-nav float-left">
-											<?php if( is_user_logged_in() ): ?>
-											<li>
-												<a class="nav-link" href="<?php echo esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ); ?>">My Account</a>
-											</li>
-											<li>
-												<a class="nav-link" href="<?php echo esc_url( wp_logout_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ) ); ?>">Logout</a>
-											</li>
-											<?php else: ?>	
-											<li>
-												<a class="nav-link" href="<?php echo esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ); ?>">Login / Register</a>
-											</li>												
-											<?php endif; ?>										
-										</ul>
-									</div>
-									<div class="cart text-right" style="text-align: right">
-										<a href="<?php echo wc_get_cart_url(); ?>"><span class="cart-icon"></span></a>
-										<span class="items"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-									</div>
-								</div>
-								<?php endif; ?>
+                                <!-- verificando se o woocommerce esta ativado -->
+                                <?php if (class_exists('WooCommerce')) : ?>
+                                    <div class="account col-12">
+                                        <div class="navbar-expand">
+                                            <ul class="navbar-nav float-left">
+                                                <?php if (is_user_logged_in()) : ?>
+                                                    <li>
+                                                        <a class="nav-link" href="<?php echo esc_url(get_permalink(get_option('woocommerce_myaccount_page_id'))); ?>">My Account</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="nav-link" href="<?php echo esc_url(wp_logout_url(get_permalink(get_option('woocommerce_myaccount_page_id')))); ?>">Logout</a>
+                                                    </li>
+                                                <?php else : ?>
+                                                    <li>
+                                                        <a class="nav-link" href="<?php echo esc_url(get_permalink(get_option('woocommerce_myaccount_page_id'))); ?>">Login / Register</a>
+                                                    </li>
+                                                <?php endif; ?>
+                                            </ul>
+                                        </div>
+                                        <div class="cart text-right" style="text-align: right">
+                                            <a href="<?php echo wc_get_cart_url(); ?>"><span class="cart-icon"></span></a>
+                                            <span class="items"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
 
 
 
